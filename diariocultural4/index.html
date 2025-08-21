@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário Cultural | Estética Japonesa</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Diário Cultural</h1>
+            <p class="subtitle">Registro simples de experiências culturais</p>
+        </header>
+
+        <div class="tabs">
+            <button class="active" data-category="todos">Todos</button>
+            <button data-category="filmes">Filmes</button>
+            <button data-category="livros">Livros</button>
+            <button data-category="musicas">Músicas</button>
+        </div>
+
+        <div class="content">
+            <section class="form-section">
+                <h2>Novo Registro</h2>
+                <form id="entryForm">
+                    <select id="category" required>
+                        <option value="">Categoria</option>
+                        <option value="filmes">Filme</option>
+                        <option value="livros">Livro/Mangá</option>
+                        <option value="musicas">Música</option>
+                    </select>
+                    
+                    <input type="text" id="title" placeholder="Título" required>
+                    
+                    <textarea id="comment" placeholder="Reflexões..."></textarea>
+                    
+                    <input type="date" id="date" required>
+                    
+                    <div class="status-group">
+                        <label><input type="radio" name="status" value="planejado" checked> Planejado</label>
+                        <label><input type="radio" name="status" value="em-andamento"> Em andamento</label>
+                        <label><input type="radio" name="status" value="concluido"> Concluído</label>
+                    </div>
+
+                    <button type="submit" class="primary">Adicionar</button>
+                </form>
+            </section>
+
+            <section class="entries-section">
+                <div class="filters">
+                    <input type="text" id="searchInput" placeholder="Buscar...">
+                    <select id="statusFilter">
+                        <option value="todos">Todos os status</option>
+                        <option value="planejado">Planejado</option>
+                        <option value="em-andamento">Em andamento</option>
+                        <option value="concluido">Concluído</option>
+                    </select>
+                </div>
+                
+                <div id="entriesList" class="entries-list">
+                    <div class="empty-state">
+                        <p>Sua estante cultural está vazia</p>
+                        <p>Adicione suas primeiras experiências</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>Diário Cultural &copy; 2025</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
