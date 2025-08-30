@@ -1,0 +1,3 @@
+const TMDB_API_KEY = "3f89609a767434dcc378d8eb1c81e317";
+const LASTFM_API_KEY = "a1e77df09fe8bc87cdceb3d34db460f4"; 
+const GOOGLE_BOOKS_API_KEY = "AIzaSyBHuvaTtkdXOav20I4ghl_BIRPOMZltRmk";
