@@ -1,0 +1,345 @@
+/* ==============================================
+   PAINEL DE CONTROLE DO VISUAL (Variáveis)
+   ==============================================
+   Aqui definimos as cores e fontes principais do site todo. 
+   Se quiser mudar a cor de tudo, é só mudar aqui em um 
+   lugar só! É como uma paleta de cores.
+*/
+:root {
+  --cor-principal-texto: #333;
+  --cor-fundo-pagina: #f8f8f8;
+  --cor-fundo-container: #fff;
+  --cor-borda-suave: #e0e0e0;
+  --cor-texto-secundario: #888;       /* Para textos mais apagadinhos */
+  --cor-primaria-acao: #2c2c2c;        /* Cor dos botões e links principais */
+  --cor-fundo-hover: #fafafa;          /* Cor que aparece ao passar o mouse */
+  --sombra-suave: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --fonte-principal: 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  --raio-borda: 2px;                  /* Para deixar as bordas um pouco arredondadas */
+}
+
+/* ==============================================
+   LIMPEZA E BASE PARA A PÁGINA
+   ==============================================
+   Isso 'zera' as margens e paddings que os navegadores 
+   colocam por padrão. É como começar com uma tela em branco.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  /* Regra muito útil! Faz com que a 'caixa' de um elemento não 
+     cresça quando você adiciona preenchimento (padding) ou borda. */
+  box-sizing: border-box; 
+}
+
+/* Define a aparência base para todo o texto da página */
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--cor-fundo-pagina);
+  color: var(--cor-principal-texto);
+  line-height: 1.6; /* Espaçamento entre as linhas de texto */
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto; /* Um truque para centralizar o conteúdo na tela */
+}
+
+/* ==============================================
+   ESTRUTURA PRINCIPAL DO SITE
+   ==============================================
+   Estilos para o esqueleto da página.
+*/
+
+/* A 'caixa' principal que segura todo o conteúdo do site */
+.container {
+  background-color: var(--cor-fundo-container);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-suave);
+  overflow: hidden; /* Evita que algo escape para fora da caixa */
+  border: 1px solid var(--cor-borda-suave);
+}
+
+/* O cabeçalho, onde fica o título principal */
+header {
+  text-align: center;
+  padding: 30px 20px;
+  border-bottom: 1px solid var(--cor-borda-suave);
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 300; /* Deixa a fonte mais fina e elegante */
+  margin-bottom: 5px;
+  color: var(--cor-primaria-acao);
+  letter-spacing: 1px; /* Espacinho extra entre as letras */
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  font-weight: 300;
+}
+
+/* O rodapé, aquela parte que fica lá no final da página */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--cor-texto-secundario);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--cor-borda-suave);
+}
+
+/* ==============================================
+   BOTÕES E ABAS DE FILTRO
+   ==============================================
+   Estilos para partes que o usuário pode clicar.
+*/
+
+/* A barra com os botões "Todos", "Filmes", etc. */
+.tabs {
+  display: flex; /* Coloca os botões um ao lado do outro */
+  background-color: var(--cor-fundo-pagina);
+  border-bottom: 1px solid var(--cor-borda-suave);
+}
+
+.tabs button {
+  flex: 1; /* Faz cada botão ocupar o mesmo espaço */
+  padding: 15px;
+  border: none;
+  background: none; /* Deixa o fundo transparente */
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer; /* Mostra a 'mãozinha' ao passar o mouse */
+  transition: all 0.2s; /* Animação suave */
+  border-bottom: 2px solid transparent;
+}
+
+/* Como o botão deve ficar quando está 'selecionado' */
+.tabs button.active {
+  color: var(--cor-primaria-acao);
+  border-bottom-color: var(--cor-primaria-acao);
+}
+
+/* ==============================================
+   DIVISÃO DO CONTEÚDO EM COLUNAS
+   ==============================================
+   Aqui dividimos a área de conteúdo em duas colunas: uma para o 
+   formulário e outra, maior, para a lista.
+*/
+.content {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Coluna 1 ocupa 1 parte, Coluna 2 ocupa 2 partes do espaço */
+  gap: 30px; /* Espaço entre as colunas */
+}
+
+/* ==============================================
+   FORMULÁRIO DE NOVO REGISTRO
+   ==============================================
+   O visual de todos os campos para adicionar um novo item.
+*/
+.form-section {
+  background-color: var(--cor-fundo-hover);
+  padding: 20px;
+  border-radius: var(--raio-borda);
+  border-left: 1px solid var(--cor-borda-suave);
+}
+
+.form-section h2 {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--cor-primaria-acao);
+}
+
+form {
+  display: flex;
+  flex-direction: column; /* Coloca os campos um abaixo do outro */
+  gap: 15px; /* Espaço entre os campos */
+}
+
+/* Deixa todos os campos (texto, seleção, etc.) com a mesma aparência */
+input, select, textarea {
+  padding: 12px;
+  border: 1px solid var(--cor-borda-suave);
+  border-radius: var(--raio-borda);
+  font-size: 0.9rem;
+  background-color: var(--cor-fundo-container);
+  width: 100%;
+  font-family: inherit; /* Pega a mesma fonte do resto do site */
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical; /* Permite que o usuário aumente a altura da caixa de texto */
+}
+
+/* Estilo geral para botões */
+button {
+  padding: 12px;
+  border: none;
+  border-radius: var(--raio-borda);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* O botão principal, de 'Adicionar', para ele se destacar */
+button.primary {
+  background-color: var(--cor-primaria-acao);
+  color: var(--cor-fundo-container);
+}
+
+button.primary:hover {
+  background-color: #444; /* Escurece um pouco ao passar o mouse */
+}
+
+/* O grupo das opções "Planejado", "Em andamento", etc. */
+.status-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.status-group label {
+  display: flex;
+  align-items: center; /* Alinha o texto com a bolinha de seleção */
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+/* ==============================================
+   LISTA DE ITENS CADASTRADOS
+   ==============================================
+   O visual dos filtros e de cada item que aparece na lista.
+*/
+.entries-section {
+  background-color: var(--cor-fundo-container);
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters input, .filters select {
+  background-color: var(--cor-fundo-hover);
+  flex: 1;
+}
+
+.entries-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* O visual de cada 'cartão' que aparece na lista */
+.entry-item {
+  padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+.entry-item:hover {
+  background-color: var(--cor-fundo-hover);
+}
+
+.entry-item h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--cor-primaria-acao);
+}
+
+.entry-meta {
+  color: var(--cor-texto-secundario);
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 15px;
+}
+
+.entry-comment {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+/* A etiqueta colorida que mostra o status (Planejado, Concluído, etc.) */
+.entry-status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--raio-borda);
+  font-size: 0.75rem;
+}
+
+/* Cores diferentes para cada tipo de etiqueta de status */
+.status-planejado {
+  background-color: #f5f5f5;
+  color: var(--cor-texto-secundario);
+}
+
+.status-andamento {
+  background-color: #e8f4fd;
+  color: #2c7db8;
+}
+
+.status-concluido {
+  background-color: #f0f8f0;
+  color: #2c8c2c;
+}
+
+/* A mensagem que aparece quando não tem nada na lista ainda */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #aaa;
+}
+
+.empty-state p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+/* ==============================================
+   AJUSTES PARA CELULARES E TABLETS (Responsividade)
+   ==============================================
+   Essa parte faz o site se adaptar e continuar bonito
+   em telas de diferentes tamanhos.
+*/
+
+/* Se a tela for menor que 768px (um tablet, por exemplo)... */
+@media (max-width: 768px) {
+  /* ...o layout de duas colunas vira uma coluna só. */
+  .content {
+    grid-template-columns: 1fr; 
+  }
+}
+
+/* E se a tela for ainda menor (um celular)... */
+@media (max-width: 480px) {
+  /* ...os filtros ficam um abaixo do outro. */
+  .filters {
+    flex-direction: column;
+  }
+  
+  /* ...as abas de categoria podem quebrar a linha se não couberem. */
+  .tabs {
+    flex-wrap: wrap;
+  }
+  
+  /* ...e cada aba ocupa metade da tela. */
+  .tabs button {
+    flex-basis: 50%;
+    padding: 12px;
+  }
+}
